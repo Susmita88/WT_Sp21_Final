@@ -4,7 +4,7 @@
 	$db_pass="";
 	$db_name="webtec";
 	
-	function execute($query){   //reunning insert,update,delete
+	function execute($query){   //running insert,update,delete
 		global $db_server,$db_user,$db_pass,$db_name;
 		$conn = mysqli_connect($db_server,$db_user,$db_pass,$db_name);
 		mysqli_query($conn,$query);

@@ -18,7 +18,9 @@
 	<p></p>
 	<a href="Add Students.php"> Add Students </a>
 	<p></p>
-	<a href=""> Edit Student </a>
+	<a href="All Departments.php"> All Departments </a>
+	<p></p>
+	<a href="Add Departments.php"> Add Departments </a>
 	<p></p>
 	
 	</body>
