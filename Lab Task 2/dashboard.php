@@ -14,9 +14,9 @@
 	<head>
 	</head>
 	<body>
-	<a href="allstudents.php"> All Students </a>
+	<a href="All Students.php"> All Students </a>
 	<p></p>
-	<a href="addstudent.php"> Add Student </a>
+	<a href="Add Students.php"> Add Students </a>
 	<p></p>
 	<a href=""> Edit Student </a>
 	<p></p>
