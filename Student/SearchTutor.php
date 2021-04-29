@@ -1,318 +1,232 @@
+
+<?php 
+        $city="";
+	    $err_city="";
+			
+	    $area="";
+		$err_area="";
+			
+		$class="";
+		$err_class="";
+			
+		$medium="";
+		$err_medium="";
+			
+		$subject="";
+		$err_subject="";
+			
+		$gender="";
+		$err_gender="";
 		
-		<?php 
-            $district="";
-			$err_district="";
-			
-			$class="";
-			$err_class="";
-			
-			$area="";
-			$err_area="";
-			
-			$subject="";
-			$err_subject="";
-			
-			
-			$gender="";
-			$err_gender="";
-			
-			$day="";
-			$err_day="";
-			
-		    $salary="";
-	        $err_salary="";
-		   
-		   	$medium="";
-			$err_medium="";
-			
-			$salary="";
-			$err_salary="";
-			
-				$day="";
-			$err_day="";
-			
-			
-				$comment="";
-			$err_comment="";
-		   
-		   if($_SERVER['REQUEST_METHOD']== "POST"){
-			   	if(empty($_POST["class"])){                                   
-					$err_class="*please select a class";
-				}
-				
-				else{
-					$class=$_POST["class"];
-				}
-				
-				
-					if(empty($_POST["district"])){                                   
-					$err_district="*please select district";
-				}
-				
-				else{
-					$district=$_POST["district"];
-				}
-			   
-			   
-			   
-			   
-			   	if (!isset($_POST["gender"])){
-                    $err_gender="*Gender Not Selected";
-                }
-				else{
-					if (isset($gender) && $gender=="Male"){
-						$gender=$_POST["gender"];
-					}
-					else{
-						if (isset($gender) && $gender=="Female"){
-							$gender=$_POST["gender"];
-						}
-				    }
-				}
-				
-					if(empty($_POST["medium"])){
-					$err_medium="this field is mandatory";  
-				}
-				else{
-					$medium=$_POST["medium"];
-				}
-			
-					if(empty($_POST["area"])){
-					$err_area="select an area ";  
-				}
-				else{
-					$area=$_POST["area"];
-				}
+?>
+	<html> 
+	<table border="0px" width="100%" cellpadding="0px" cellspacing="0px" bgcolor="#f1f1f1">
+			<tr>
+				<td width="20%" height="60px" align="center"><font size="10px" color=""><b></b></font></td>
+			</tr>
+	</table>
+    <table border="0px" width="100%" height="60px" cellpadding="0px" cellspacing="0px">
+			<tr>
+				<td bgcolor="#AFDED3">
+				&emsp; &emsp;
+					<a href="Home.php">Home</a>
+				&emsp; &emsp;
+				</td>
+				<td height="20px" bgcolor="grey"align="right">
 					
-				if(empty($_POST["day"])){                                       
-					$err_day="*select one from below";
-				}
-				
-				else{
-					$day=$_POST["day"];
-				}
-					
-				if(empty($_POST["salary"])){                                       
-					$err_salary="*select salary range";
-				}
-				
-				else{
-					$salary=$_POST["salary"];
-				}
-				
-						
-				if(empty($_POST["comment"])){                                       
-					$err_comment="*leave a message";
-				}
-				
-				else{
-					$comment=$_POST["comment"];
-				}
-				
-					if(empty($_POST["subject"])){                                       
-					$err_subject=" *Choose a subject";
-				}
-				
-				else{
-					$subject=$_POST["subject"];
-				}
-			
-			
-			
-		
-		
-			
-		
-		   }
-		?>
-		
-		
-		
-		
-		
-		
-		<html> 
-		   <title> Search For Tutor</title> 
+					<a href="../tution_station.php"><font color="white"><img align=middle width="35px" height="38px" src="pictures/logOut.png"></font></a>	
+				</td>
+			</tr>
+	</table>
+	
+    <title> Search For Tutor</title> 
 		   
-		    <body style="background-color:powderblue;">
-			<h2 style="margin-top:30px;margin-left:35px;margin-right:93%;color:pink;background-color:RGB(80, 159, 0)"><b><a href="Home.php">Home</a></b></h3>
-		    <fieldset style="width:800px;border:solid 2px" >
-			<legend> <h1> Search For Tutors</h1></legend>
+	<body style="background-color:white;">
 			
-			
-		      
-			  <form action="" method="post">
-			   <table>
+		<fieldset style="width:800px;border:solid 2px" >
+	    <legend> <h1> Search For Tutors</h1></legend>
+	 
+		<form action="" method="post" onsubmit="return validate()">
+			<table>
 			   <tr>
-					<td><span> Select District  </span></td>
-					<td>:
-						<select name="district"  >
-						<option> </option>
+					<td><span> Select City  </span></td>
+					<td>:<select id="city" name="city">
+						    <option> </option>
 							<option>Dhaka </option>
-							<option>NarayanGanj </option>
-							<option>Faridpur  </option>
-						    <option>Gopalganj </option>
-							<option>Gazipur </option>
-							<option>kishoreganj </option>
-							<option>Rajbari </option>
-							<option>Narsingdi </option>
-							<option>Shariatpur</option>
-							<option>Tangail </option>
+							<option>Chittagong </option>
+							<option>Nuakhali  </option>
+						    <option>Comilla </option>
+							<option>Rajshahi </option>
 						</select> 
-							<span style="color:red"><?php echo $err_district;?></span></td>
-					
-						   <tr>
-					<td><span> Select Area  </span></td>
-					<td>:
-						<select name="area">
-						<option> </option>
-							<option>Bashudara Residential area  </option>
-							<option>Mirpur  </option>
-							<option>Savar  </option>
-							<option>Uttara  </option>
-							<option>tangail area  </option>
-							<option>Badda </option>
-						  </select> 
-						  	
-						<span style="color:red"><?php echo $err_area;?></span></td>
+					    <span id="err_city"><?php echo $err_city;?></span>
+					</td>
+				</tr>
 				
-					
-					
-					<tr>
+				<tr>
+					<td><span> Select Area  </span></td>
+					<td>:<select id="area" name="area">
+						    <option> </option>
+							<option>Bashudara Residential Area  </option>
+							<option>Mirpur  </option>
+							<option>Uttara  </option>
+							<option>Khulshi  </option>
+							<option>Tangail  </option>
+						</select> 
+						<span id="err_area"><?php echo $err_area;?></span>
+					</td>
+				</tr>
+		
+                <tr>
 					<td><span>Select Class </span></td>
-					<td>:
-						<select name=" class">
-						<option> </option>
-							
-							<option>  Kg*  </option>
-							<option> Nursery</option>
+					<td>:<select id="class" name="class">
+						    <option> </option>
+							<option>  Kg  </option>
+							<option>Nursery </option>
 							<option>playpen </option>
 							<option>class 1 </option>
-							<option>class 2</option>
-							<option> class 3 </option>
-						     <option>class 4</option>
-							<option>class 5</option>
-							<option> class 6</option>
+							<option>class 2 </option>
+							<option>class 3 </option>
+						    <option>class 4 </option>
+							<option>class 5 </option>
+							<option>class 6 </option>
 							<option>class 7 </option>
-							<option>class 8</option>
-							<option> class 9 </option>
-							<option>class 10</option>
-							<option> class 11 </option>
-						     <option>class 12 </option>
-							<option>Secondary</option>
-							<option> Higher Secondary </option>
+							<option>class 8 </option>
+							<option>class 9 </option>
+							<option>class 10 </option>
+							<option>class 11 </option>
+						    <option>class 12 </option>
+							<option>Secondary </option>
+							<option>Higher Secondary </option>
 							<option>Admission test </option>
-							<option>others</option>
+							<option>Others </option>
 						
-						</select> 
-					<span style="color:red"><?php echo $err_class;?></span></td>
-				</tr>
-					
-				<tr>
-					<td><span> Select Gender</span></td>
-				<td>:<input type="radio" value="Male" name="Select Gender">Male<input type="radio" value="Female" name="gender">Female 
-				<span style="color:red"><?php echo $err_gender;?></span></td>
-					
+						</select>
+						<span id="err_class"><?php echo $err_class;?></span>
+					</td>
 				</tr>
 				
+			    <tr>
+					<td><span>Select  Medium </span></td>
+				    <td>:
+					    <input type="radio" id="medium" name="Bangla" value="<?php echo $medium;?>">
+						<span>Bangla</span>
+						<input type="radio" id="medium" name="English" value="<?php echo $medium;?>">
+						<span>English</span> 
+						<span id="err_medium"><?php echo $err_medium;?></span>
+					</td>
+				</tr>
 				
 				<tr>
-					<td><span>Select Medium  </span></td>
-					<td>:
-					
-						<select name="medium" >
-						<option> </option>
-							<option>Bangla</option>
-							<option>English</option>
-							<option>Religious Studies </option>
-						     <option>Arts </option>
-							<option>Admission Test </option>
-							<option>Special Skill Learning  </option>
-							
-						</select> 
-					<span style="color:red"><?php echo $err_medium;?></span></td>
-					
-				</tr>
-					<tr>
 					<td><span>Select Subject </span></td>
 					<td>:
-						<select name="subject">
-						<option> </option>
+						<select id="subject" name="subject">
+						    <option> </option>
 							
-							<option>  All Subject </option>
-							<option> Accounting </option>
-							<option>Finance  </option>
-							<option>oop1</option>
-							<option>object oriented programmin 2</option>
-							<option> Bangla </option>
-						     <option>Physics</option>
-							<option>Chemistry</option>
-							<option> Biology</option>
-							<option>marketing  </option>
+							<option>All Subject </option>
+							<option>Accounting </option>
+							<option>Finance </option>
+							<option>Bangla </option>
+						    <option>Physics </option>
+							<option>Chemistry </option>
+							<option>Biology </option>
+							<option>Marketing  </option>
 							<option>Arabic </option>
 							<option>English </option>
 							<option>Admission </option>
-							<option> Writing  </option>
-						     <option>Art</option>
-							
+							<option>Religious </option>
+						    <option>Art </option>
 							<option>Admission test </option>
-							<option>others</option>
+							<option>Others</option>
 						
 						</select> 
-						<span style="color:red"><?php echo $err_subject;?></span></td>
-				
-			
-				  <tr>
-				<td>Day per week </td>
-			   <td>:
-				<select name="day">
-				<option> </option>
-				<?php
-					for($i=1;$i<=7;$i++){
-					echo "<option>$i</option>";	
-						}
-						?>
-					
-						
-					</select>
-					<span style="color:red"><?php echo $err_day;?></span>
+					    <span id="err_subject"><?php echo $err_subject;?></span>
 					</td>
-								<tr>
-								
-								<td>Salary Range  </td>
-							        <td>:
-								<select name="salary">
-								<option> </option>
-								
-								<?php
-								    $salary = array("1000tk/month","2000tk/month","3000tk/month","4000tk/month","5000tk/month","6000tk/month","7000tk/month","8000tk/month","9000tk/month","10,000tk/month");
-									foreach($salary as $v){
-										echo "<option>$v</option>";
-										
-									}
-								?>
-								</select>
-									<span style="color:red"><?php echo $err_salary;?></span>
-							
-						</td>
-					</tr>
-				
-					
+			    </tr>
 				
 				
 				<tr>
-					<td><span> Leave a comment  </span></td>
-					<td>:<textarea  name="Leave a comment " name="comment"></textarea>
-					<span style="color:red"><?php echo $err_comment;?></span></td>
+					<td><span> Select Gender</span></td>
+				    <td>:<input type="radio" id="gender" name="Male" value="<?php echo $gender;?>"><span>Male</span>
+					    <input type="radio" id="gender" name="Female" value="<?php echo $gender;?>"><span>Female</span> 
+				        <span id="err_gender"><?php echo $err_gender;?></span>
+					</td>
 					
 				</tr>
-				<tr>
-					<td align="center" colspan="2"><input type="submit" value="search"></td>
-				</tr>
-
+	
 			</table>
-
+			
+            <div class="buttons" align="center" colspan="2">
+			        <p><br></p>
+			        
+					<td align="center" colspan="2"><input type="submit" value="search"></td>
+				 
+			</div>
 
 		</form>
 	</body>
+	
+	<script>
+	        function get(id){
+		 		return document.getElementById(id);
+			}
+			
+			function validate(){
+					cleanUp();
+			        var hasError=false;
+						//var err_msg="";
+						
+				    if(get("city").value == ""){
+				get("err_city").innerHTML="*City Required*";
+				get("err_city").style.color="purple";
+				hasError=true;
+				}
+					
+				    if(get("area").value == ""){
+				get("err_area").innerHTML="*Area Required*";
+                get("err_area").style.color="purple";
+				hasError=true;
+				}
+				
+					if(get("class").value == ""){
+				get("err_class").innerHTML="*Class Required*";
+                get("err_class").style.color="purple";
+				hasError=true;
+				}
+						
+					if(get("medium").value == ""){
+				get("err_medium").innerHTML="*Medium Required*";
+                get("err_medium").style.color="purple";
+				hasError=true;
+				}
+				
+					if(get("subject").value == ""){
+				get("err_subject").innerHTML="*Subject Required*";
+				get("err_subject").style.color="purple";
+				hasError=true;
+				}
+					
+					if(get("gender").value == ""){
+				get("err_gender").innerHTML="*Gender Required*";
+				get("err_gender").style.color="purple";
+				hasError=true;
+				}
+					
+			    if(!hasError){
+				    return true;
+				
+			    }
+					//alert(err_msg);
+					return false;
+			}
+			
+			function cleanUp(){
+			get("err_city").innerHTML = "";
+			get("err_area").innerHTML = "";
+			get("err_class").innerHTML = "";
+			get("err_medium").innerHTML = "";
+			get("err_subject").innerHTML = "";
+			get("err_gender").innerHTML = "";
+			
+		    }
+	</script>
 </html>

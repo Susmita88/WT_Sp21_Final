@@ -1,19 +1,25 @@
-<h2>Tutors</h2>
+
+<table border="0px" width="100%" cellpadding="0px" cellspacing="0px" bgcolor="#f1f1f1">
+			<tr>
+				<td width="20%" height="60px" align="center"><font size="10px" color="dodgerblue"><b>Tutors</b></font></td>
+			</tr>
+			<tr>
+				
+			</tr>
+</table>
+
 
 <table border="0px" width="100%" cellpadding="0px" cellspacing="0px">
 		<tr>
 			<td bgcolor="#AFDED3">
-			&emsp; &emsp;
+			&emsp;  &emsp;
 				<a href="Profile.php">Profile</a>
-			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+			&emsp;  &emsp;
 				<a href="Home.php">Home</a> 
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-				&emsp;&emsp;&emsp;&emsp;
+			&emsp;  &emsp;
 				
 				<a href="ChangePassword.php">Change Password</a> 
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-				
+			&emsp;	&emsp;
 				
 				
 			</td>
@@ -22,7 +28,7 @@
 				<a href="../tution_station.php"><font color="white">Log Out</font></a>	
 			</td>
 		</tr>
-	</table>
+	</table></br>
 
 
 <table>			
@@ -32,10 +38,10 @@
 					<?php echo "Tutors ID"; echo str_repeat("&nbsp;",6); ?>
 				</td>
 				<td>
-					<?php echo "Tutor Name";echo str_repeat("&nbsp;", 26); ?>
+					<?php echo "Tutor Name";echo str_repeat("&nbsp;", 20); ?>
 				</td>
 				<td>
-					<?php echo "Salary"; echo str_repeat("&nbsp;",12); ?>
+					<?php echo "Salary"; echo str_repeat("&nbsp;",10); ?>
 				</td>
 				<td>
 					<?php echo "Experience"; echo str_repeat("&nbsp;",12); ?>
@@ -48,7 +54,7 @@
 					<?php echo "1";  ?>
 				</td>
 				<td>
-					<?php echo "Raju"; echo str_repeat("&nbsp;",25); ?>
+					<?php echo "Raju";  ?>
 				</td>
 				<td>
 					<?php echo "5000";  ?>
@@ -57,10 +63,10 @@
 					<?php echo "2 Years"; ?>
 				</td>
 				<td>
-					<a href="nego.php"> Negotiate</a>
+					<a href="Nego.php"> Negotiate</a>
 				</td>
 				<td>
-					<a href="Tutor Profile.php"> View</a>
+					<a href="TutorList.php"> View</a>
 				</td>				
 				</tr>
 	

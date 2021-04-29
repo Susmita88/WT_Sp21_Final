@@ -1,7 +1,31 @@
-  <?php
-    require_once "controllers/PostTuitionController.php" 
-  ?>
- <html>
+<?php
+		    
+		    
+		    $title="";
+			$err_title="";
+			
+			$name="";
+			$err_name="";
+			
+	        $email="";
+			$err_email="";
+			
+			
+			$salary="";
+			$err_salary="";
+			
+			$phone="";
+			$err_phone="";
+		
+			$location="";
+			$err_location="";
+			
+			$Extrainfo="";
+			$err_Extrainfo="";
+			
+?>
+
+<html>
 	<head></head>
 	<body style="background-color:white;">
 	
@@ -29,7 +53,7 @@
 
 		<fieldset style="width:800px;border:solid 2px" >
 			<legend> <h1>Make Tution Advertisement</h1></legend>
-			<form action="" method="post" class="form-horizontal form-material">
+			<form action="" method="post" onsubmit="return validate()">
 				<table style="margin-left:5px">
 				    <tr>
 						<td align="right"><span> Title </span></td>
@@ -39,7 +63,7 @@
 					</tr>
 					<tr>
 						<td align="right"><span> Name </span></td>
-						<td>:<input size="29" type="text" id="name" name="name" onfocusout="checkName(this)" value="<?php echo $name;?>">
+						<td>:<input size="29" type="text" id="name" value="<?php echo $name;?>" name="name">
 						<span id="err_name"></span><span style="color:red"><?php echo $err_name;?></span></td>
 						
 					</tr>
@@ -95,34 +119,88 @@
 				<div class="buttons" align="center" colspan="2">
 			        <p><br></p>
 			        
-					<td align="center" colspan="2"><input type="submit" class="btn btn-success" name="submit" value="submit" class="form-control"></td>
+					<td align="center" colspan="2"><input type="submit" value="submit "></td>
 					<tr>
 					</tr>
 				</div>
-				<script>
-				    function checkName(control){
-						var name = control.value;
-						
-		                var xhttp = new XMLHttpRequest();
-		                xhttp.onreadystatechange=function(){
-			                if(this.readyState == 4 && this.status == 200){
-				    //when server respond
-				    var rsp = this.responseText.trim();
-				    if(rsp == "true"){
-						//$hasError=false;
-					    document.getElementById("name").innerHTML = "<br>Valid";
-				    }
-					else{
-						//$hasError=true;
-					    document.getElementById("err_name").innerHTML = "<br>Not Valid";
-				    }
-			}
-		};
-		xhttp.open("GET","checkname.php?name="+name,true);
-		xhttp.send();
-	}
-				</script>
 			</form>
 		</fieldset>	
 	</body>
+
+    <script>
+	        function get (id){
+		 		return document.getElementById(id);
+					}
+			function validate(){
+					cleanUp();
+			        var hasError=false;
+						//var err_msg="";
+						
+				    if(get("title").value == ""){
+						get("title").focus();
+				get("err_title").innerHTML="*Title Required*";
+				get("err_title").style.color="purple";
+				hasError=true;
+					}
+					
+				    if(get("name").value == ""){
+				get("err_name").innerHTML="*Name Required*";
+                get("err_name").style.color="purple";
+				hasError=true;
+					}
+					
+					if(get("email").value == ""){
+				get("err_email").innerHTML="*Email Required*";
+                get("err_email").style.color="purple";
+				hasError=true;
+					}
+						
+					
+				
+					if(get("phone").value == ""){
+				get("err_phone").innerHTML="*Phone Number Required*";
+				get("err_phone").style.color="purple";
+				hasError=true;
+					}
+						
+					if(get("location").value == ""){
+				get("err_location").innerHTML="*Location Required*";
+				get("err_location").style.color="purple";
+				hasError=true;
+					}
+						
+					if(get("salary").value == ""){
+				get("err_salary").innerHTML="*Salary Required*";
+				get("err_salary").style.color="purple";
+				hasError=true;
+					}
+					
+					if(get("Extrainfo").value == ""){
+				get("err_Extrainfo").innerHTML="*Extra Info Required*";
+				get("err_Extrainfo").style.color="purple";
+				hasError=true;
+					}
+					
+					
+				    if(!hasError){
+				       return true;
+				
+			        }
+					//alert(err_msg);
+						return false;
+			}
+			
+					function cleanUp(){
+			get("err_title").innerHTML = "";
+			get("err_name").innerHTML = "";
+			get("err_email").innerHTML="";
+			get("err_phone").innerHTML="";
+			get("err_location").innerHTML="";
+			get("err_salary").innerHTML="";
+			get("err_Extrainfo").innerHTML="";
+			
+			
+			
+		}
+</script>
 </html>

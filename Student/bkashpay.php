@@ -3,14 +3,10 @@
 			<td bgcolor="#AFDED3">
 			&emsp; &emsp;
 				<a href="Profile.php">Profile</a>
-			&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+			&emsp; &emsp;
 				<a href="Home.php">Home</a> 
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-				&emsp;&emsp;&emsp;&emsp;
+			&emsp; &emsp;	
 				
-				<a href="ChangePassword.php">Change Password</a> 
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
-				&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
 				
 				
 			</td>
@@ -20,7 +16,7 @@
 			</td>
 		</tr>
 
-</table>
+</table></br>
 		<table border="1px" align="center">
 			<a href="tutors.php"> Back</a>
 		<tr>
@@ -36,12 +32,12 @@
 			 
 			<div class="buttons">
 			<p><br></p>
-			<button onclick="window.location.href='thankyou.php';">Confirm</button>
+			<button onclick="window.location.href='Thankyou.php';">Confirm</button>
 			
-			<span id="msg"></span>
+			
 			</br>
 			</td>
-			<tr>
+			
 			</table>
 	</pre>
 </form>
